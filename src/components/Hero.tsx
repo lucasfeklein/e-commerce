@@ -20,15 +20,12 @@ export const Hero = () => {
             <div
               key={imageNumber}
               onClick={() => handleSelectedImage(imageNumber)}
-              className={`relative rounded-2xl cursor-pointer overflow-hidden ${
+              className={`rounded-2xl cursor-pointer overflow-hidden hover:opacity-50 ${
                 selectedImage === imageNumber
-                  ? "border-2 border-orange-500"
+                  ? "border-2 border-orange-500 opacity-50"
                   : ""
               }`}
             >
-              {selectedImage === imageNumber && (
-                <div className="absolute inset-0 bg-white opacity-50"></div>
-              )}
               <img
                 width={100}
                 className="w-full h-full object-cover"
