@@ -37,6 +37,14 @@ const Header: FC<HeaderProps> = ({ cart, setCart }) => {
             className="cursor-pointer"
             onClick={() => setToggleCart(!toggleCart)}
           />
+          {cart !== 0 && (
+            <div
+              className="absolute right-[-5px] top-[-8px] bg-orange-500 rounded-full px-2 text-white text-[10px] font-bold cursor-pointer"
+              onClick={() => setToggleCart(!toggleCart)}
+            >
+              {cart}
+            </div>
+          )}
           {toggleCart && (
             <div className="absolute shadow-md w-[300px] left-[-120px] top-10 p-3 bg-white">
               <p className="border-b py-2 mb-3 font-bold text-sm">Cart</p>
