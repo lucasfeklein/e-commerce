@@ -2,9 +2,20 @@ import { useState } from "react";
 
 export const Hero = () => {
   const [selectedImage, setSelectedImage] = useState<number>(1);
+  const [count, setCount] = useState<number>(0);
 
   function handleSelectedImage(number: number) {
     setSelectedImage(number);
+  }
+
+  function add() {
+    setCount((prevCount) => prevCount + 1);
+  }
+
+  function subtract() {
+    if (count > 0) {
+      setCount((prevCount) => prevCount - 1);
+    }
   }
 
   return (
@@ -56,6 +67,28 @@ export const Hero = () => {
           <p className="text-gray-400 font-bold text-sm line-through">
             $250.00
           </p>
+        </div>
+        <div className="flex gap-3">
+          <div className="flex h-[50px]">
+            <button
+              className="bg-gray-100 text-orange-500 font-bold px-3 text-xl rounded-l-md"
+              onClick={subtract}
+            >
+              −
+            </button>
+            <p className="bg-gray-100 font-bold px-5 text-base flex justify-center items-center">
+              {count}
+            </p>
+            <button
+              className="bg-gray-100 text-orange-500 font-bold px-3 text-xl rounded-r-md"
+              onClick={add}
+            >
+              +
+            </button>
+          </div>
+          <button className="flex bg-orange-500 text-white flex-1 justify-center items-center gap-3 rounded-md hover:opacity-50 max-w-[300px] min-w-[180px]">
+            <img src="./icon-cart.svg" alt="icon cart" /> Add to cart
+          </button>
         </div>
       </div>
     </div>
