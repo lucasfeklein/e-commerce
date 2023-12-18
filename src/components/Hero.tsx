@@ -1,6 +1,10 @@
-import { useState } from "react";
+import { FC, useState } from "react";
 
-export const Hero = () => {
+type HeroProps = {
+  setCart: (value: React.SetStateAction<number>) => void;
+};
+
+export const Hero: FC<HeroProps> = ({ setCart }) => {
   const [selectedImage, setSelectedImage] = useState<number>(1);
   const [count, setCount] = useState<number>(0);
 
@@ -87,7 +91,10 @@ export const Hero = () => {
             </button>
           </div>
 
-          <button className="flex bg-orange-500 text-white flex-1 justify-center items-center gap-3 rounded-md hover:opacity-50 max-w-[300px] min-w-[180px] font-bold">
+          <button
+            className="flex bg-orange-500 text-white flex-1 justify-center items-center gap-3 rounded-md hover:opacity-50 max-w-[300px] min-w-[180px] font-bold"
+            onClick={() => setCart((prevCart) => prevCart + count)}
+          >
             <img src="./icon-cart.svg" alt="icon cart" /> Add to cart
           </button>
         </div>
