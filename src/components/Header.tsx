@@ -25,7 +25,7 @@ const Header = () => {
           <img width={25} src="./icon-cart.svg" className="cursor-pointer" />
         </div>
         <img
-          className="border-orange-500 rounded-full border-2 cursor-pointer"
+          className="hover:border-orange-500 rounded-full hover:border-2 cursor-pointer"
           width={40}
           src="./image-avatar.png"
         />
