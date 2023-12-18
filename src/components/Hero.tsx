@@ -1,35 +1,47 @@
+import { useState } from "react";
+
 export const Hero = () => {
+  const [selectedImage, setSelectedImage] = useState<number>(1);
+
+  function handleSelectedImage(number: number) {
+    setSelectedImage(number);
+  }
+
   return (
     <div className="mt-20 flex gap-32">
       <div className="flex-1 max-w-md">
         <img
           className="rounded-2xl w-full mb-4"
-          src="./image-product-1.jpg"
+          src={`./image-product-${selectedImage}.jpg`}
           alt="selected img"
         />
         <div className="flex justify-between">
           <img
+            onClick={() => handleSelectedImage(1)}
             width={100}
-            className="rounded-2xl"
+            className="rounded-2xl cursor-pointer"
             src="./image-product-1-thumbnail.jpg"
             alt="img 1"
           />
           <img
+            onClick={() => handleSelectedImage(2)}
             width={100}
-            className="rounded-2xl"
+            className="rounded-2xl cursor-pointer"
             src="./image-product-2-thumbnail.jpg"
             alt="img 1"
           />
 
           <img
+            onClick={() => handleSelectedImage(3)}
             width={100}
-            className="rounded-2xl"
+            className="rounded-2xl cursor-pointer"
             src="./image-product-3-thumbnail.jpg"
             alt="img 1"
           />
           <img
+            onClick={() => handleSelectedImage(4)}
             width={100}
-            className="rounded-2xl"
+            className="rounded-2xl cursor-pointer"
             src="./image-product-4-thumbnail.jpg"
             alt="img 1"
           />
