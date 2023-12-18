@@ -87,7 +87,7 @@ export const Hero = () => {
             </button>
           </div>
 
-          <button className="flex bg-orange-500 text-white flex-1 justify-center items-center gap-3 rounded-md hover:opacity-50 max-w-[300px] min-w-[180px]">
+          <button className="flex bg-orange-500 text-white flex-1 justify-center items-center gap-3 rounded-md hover:opacity-50 max-w-[300px] min-w-[180px] font-bold">
             <img src="./icon-cart.svg" alt="icon cart" /> Add to cart
           </button>
         </div>
