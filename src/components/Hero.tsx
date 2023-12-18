@@ -17,18 +17,25 @@ export const Hero = () => {
         />
         <div className="flex justify-between gap-3">
           {[1, 2, 3, 4].map((imageNumber) => (
-            <img
+            <div
               key={imageNumber}
               onClick={() => handleSelectedImage(imageNumber)}
-              width={100}
-              className={`rounded-2xl cursor-pointer ${
+              className={`relative rounded-2xl cursor-pointer overflow-hidden ${
                 selectedImage === imageNumber
                   ? "border-2 border-orange-500"
                   : ""
               }`}
-              src={`./image-product-${imageNumber}-thumbnail.jpg`}
-              alt={`img ${imageNumber}`}
-            />
+            >
+              {selectedImage === imageNumber && (
+                <div className="absolute inset-0 bg-white opacity-50"></div>
+              )}
+              <img
+                width={100}
+                className="w-full h-full object-cover"
+                src={`./image-product-${imageNumber}-thumbnail.jpg`}
+                alt={`img ${imageNumber}`}
+              />
+            </div>
           ))}
         </div>
       </div>
