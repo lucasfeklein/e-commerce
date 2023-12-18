@@ -1,11 +1,11 @@
+import Header from "./components/Header";
 
 function App() {
-
   return (
-    <div className="text-red-500">
-      oi
+    <div className="mx-32">
+      <Header />
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
