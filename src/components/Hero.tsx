@@ -1,7 +1,40 @@
 export const Hero = () => {
   return (
-    <div className="mt-20 flex">
-      <div className="flex-1">oi</div>
+    <div className="mt-20 flex gap-32">
+      <div className="flex-1 max-w-md">
+        <img
+          className="rounded-2xl w-full mb-4"
+          src="./image-product-1.jpg"
+          alt="selected img"
+        />
+        <div className="flex justify-between">
+          <img
+            width={100}
+            className="rounded-2xl"
+            src="./image-product-1-thumbnail.jpg"
+            alt="img 1"
+          />
+          <img
+            width={100}
+            className="rounded-2xl"
+            src="./image-product-2-thumbnail.jpg"
+            alt="img 1"
+          />
+
+          <img
+            width={100}
+            className="rounded-2xl"
+            src="./image-product-3-thumbnail.jpg"
+            alt="img 1"
+          />
+          <img
+            width={100}
+            className="rounded-2xl"
+            src="./image-product-4-thumbnail.jpg"
+            alt="img 1"
+          />
+        </div>
+      </div>
       <div className="flex-1 flex flex-col gap-6">
         <p className="text-orange-500 font-bold text-sm tracking-widest">
           SNEAKER COMPANY
