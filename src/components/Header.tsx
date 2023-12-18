@@ -1,4 +1,8 @@
+import { useState } from "react";
+
 const Header = () => {
+  const [toggleCart, setToggleCart] = useState<boolean>(false);
+
   return (
     <div className="flex justify-between border-b">
       <div className="flex gap-7 mt-[40px]">
@@ -21,8 +25,42 @@ const Header = () => {
         </div>
       </div>
       <div className="flex gap-7 items-center">
-        <div>
-          <img width={25} src="./icon-cart.svg" className="cursor-pointer" />
+        <div className="relative">
+          <img
+            width={25}
+            src="./icon-cart.svg"
+            className="cursor-pointer"
+            onClick={() => setToggleCart(!toggleCart)}
+          />
+          {toggleCart && (
+            <div className="absolute shadow-md w-[300px] left-[-120px] top-10 p-3 bg-white">
+              <p className="border-b py-2 mb-3 font-bold text-sm">Cart</p>
+              <div className="flex items-center gap-3">
+                <img
+                  src="./image-product-1-thumbnail.jpg"
+                  alt="img thumbnail"
+                  className="w-[40px] h-[40px] rounded-md"
+                />
+                <div>
+                  <p className="text-gray-400 text-sm">
+                    Fall Limited Edition Sneakers
+                  </p>
+                  <p className="text-gray-400 text-sm">
+                    $125.00 x 3
+                    <span className="text-gray-800 font-bold"> $375.00</span>
+                  </p>
+                </div>
+                <img
+                  src="./icon-delete.svg"
+                  alt="delete icon"
+                  className="w-3 h-4 cursor-pointer"
+                />
+              </div>
+              <button className="bg-orange-500 rounded-md w-full py-2 font-semibold text-sm mt-4 text-white">
+                Checkout
+              </button>
+            </div>
+          )}
         </div>
         <img
           className="hover:border-orange-500 rounded-full hover:border-2 cursor-pointer"
