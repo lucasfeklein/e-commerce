@@ -8,11 +8,13 @@ const Header = () => {
         <p className="cursor-pointer text-gray-500 font-semibold hover:text-gray-800">
           Collection
         </p>
-        <p className="cursor-pointer text-gray-500 hover:text-gray-800">Men</p>
-        <p className="cursor-pointer text-gray-500 hover:text-gray-800">
+        <p className="cursor-pointer text-gray-500 font-semibold hover:text-gray-800">
+          Men
+        </p>
+        <p className="cursor-pointer text-gray-500 font-semibold hover:text-gray-800">
           About
         </p>
-        <p className="cursor-pointer text-gray-500 hover:text-gray-800">
+        <p className="cursor-pointer text-gray-500 font-semibold hover:text-gray-800">
           Contact
         </p>
       </div>
