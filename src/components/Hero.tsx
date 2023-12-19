@@ -4,9 +4,56 @@ type HeroProps = {
   setCart: (value: React.SetStateAction<number>) => void;
 };
 
+const ImagesOverlay = () => {
+  const [selectedImage, setSelectedImage] = useState<number>(1);
+  function handleSelectedImage(number: number) {
+    setSelectedImage(number);
+  }
+  return (
+    <div className="fixed inset-0 h-screen w-screen flex justify-center items-center">
+      <div className="fixed inset-0 h-screen w-screen flex justify-center items-center bg-black opacity-50 -z-10"></div>
+      <div className="flex flex-col w-[500px] gap-3 items-center">
+        <img
+          width={20}
+          className="filter brightness-0 invert ml-auto cursor-pointer"
+          src="./icon-close.svg"
+          alt="close icon"
+        />
+        <div>
+          <img
+            src="./image-product-1.jpg"
+            alt="main image"
+            className="rounded-2xl"
+          />
+        </div>
+        <div className="flex gap-3">
+          {[1, 2, 3, 4].map((imageNumber) => (
+            <div
+              key={imageNumber}
+              onClick={() => handleSelectedImage(imageNumber)}
+              className={`rounded-2xl cursor-pointer overflow-hidden hover:opacity-50 ${
+                selectedImage === imageNumber
+                  ? "border-2 border-orange-500 opacity-50"
+                  : ""
+              }`}
+            >
+              <img
+                className="w-[100px] h-[100px] object-cover"
+                src={`./image-product-${imageNumber}-thumbnail.jpg`}
+                alt={`img ${imageNumber}`}
+              />
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+};
+
 export const Hero: FC<HeroProps> = ({ setCart }) => {
   const [selectedImage, setSelectedImage] = useState<number>(1);
   const [count, setCount] = useState<number>(0);
+  const [toggleOverlay, setToggleOverlay] = useState<boolean>(true);
 
   function handleSelectedImage(number: number) {
     setSelectedImage(number);
@@ -95,10 +142,16 @@ export const Hero: FC<HeroProps> = ({ setCart }) => {
             className="flex bg-orange-500 text-white flex-1 justify-center items-center gap-3 rounded-md hover:opacity-50 max-w-[300px] min-w-[180px] font-bold"
             onClick={() => setCart((prevCart) => prevCart + count)}
           >
-            <img src="./icon-cart.svg" alt="icon cart" /> Add to cart
+            <img
+              src="./icon-cart.svg"
+              alt="icon cart"
+              className="filter brightness-0 invert"
+            />{" "}
+            Add to cart
           </button>
         </div>
       </div>
+      {toggleOverlay && <ImagesOverlay />}
     </div>
   );
 };
