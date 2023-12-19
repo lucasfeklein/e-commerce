@@ -56,22 +56,32 @@ const ImagesOverlay: FC<ImagesOverlayProps> = ({ setToggleOverlay }) => {
             className="cursor-pointer bg-white rounded-full w-10 h-10 p-3 absolute top-1/2 transform -translate-y-1/2 right-0 -mr-5"
           />
         </div>
-        <div className="flex gap-3">
+        <div className="flex gap-3 justify-center items-center">
           {[1, 2, 3, 4].map((imageNumber) => (
             <div
               key={imageNumber}
               onClick={() => handleSelectedImage(imageNumber)}
-              className={`rounded-2xl cursor-pointer hover:opacity-50 ${
+              className={`relative rounded-2xl cursor-pointer overflow-hidden ${
                 selectedImage === imageNumber
-                  ? "border-2 border-orange-500 opacity-50"
+                  ? "border-2 border-orange-500 "
                   : ""
               }`}
             >
               <img
-                className="w-[100px] h-[100px] object-cover rounded-2xl"
+                className="w-[100px] h-[100px]"
                 src={`./image-product-${imageNumber}-thumbnail.jpg`}
                 alt={`img ${imageNumber}`}
               />
+              {selectedImage === imageNumber && (
+                <div className="absolute bg-white inset-0 opacity-50"></div>
+              )}
+              <div
+                className={`absolute hover:bg-white inset-0 ${
+                  selectedImage === imageNumber
+                    ? "hover:opacity-0"
+                    : "hover:opacity-50"
+                } `}
+              ></div>
             </div>
           ))}
         </div>
