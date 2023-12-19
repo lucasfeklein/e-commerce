@@ -1,4 +1,6 @@
 import { FC, useState } from "react";
+import { useWindowSize } from "react-use";
+import { MobileMenu } from "./MobileMenu";
 
 const menuArray = ["Collection", "Men", "About", "Contact"];
 
@@ -9,22 +11,34 @@ type HeaderProps = {
 
 const Header: FC<HeaderProps> = ({ cart, setCart }) => {
   const [toggleCart, setToggleCart] = useState<boolean>(false);
+  const { width } = useWindowSize();
+  const [toggleMenu, setToggleMenu] = useState<boolean>(false);
 
   return (
     <div className="flex justify-between border-b">
       <div className="flex gap-7 mt-[40px]">
-        <div>
+        <div className="flex gap-3 items-start">
+          {width < 920 && (
+            <img
+              src="./icon-menu.svg"
+              alt="icon menu"
+              className="mt-1 cursor-pointer"
+              onClick={() => setToggleMenu(true)}
+            />
+          )}
           <img className="mr-4" src="./logo.svg" />
         </div>
         <div className="flex gap-6 h-[60px]">
-          {menuArray.map((menu) => (
-            <p
-              key={menu}
-              className="cursor-pointer text-gray-500 font-semibold hover:text-gray-800 hover:border-b-2 hover:border-b-orange-500"
-            >
-              {menu}
-            </p>
-          ))}
+          {width >= 920 &&
+            menuArray.map((menu) => (
+              <p
+                key={menu}
+                className="cursor-pointer text-gray-500 font-semibold hover:text-gray-800 hover:border-b-2 hover:border-b-orange-500"
+              >
+                {menu}
+              </p>
+            ))}
+          {toggleMenu && <MobileMenu setToggleMenu={setToggleMenu} />}
         </div>
       </div>
       <div className="flex gap-7 items-center">
