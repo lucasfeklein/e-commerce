@@ -15,7 +15,7 @@ const Header: FC<HeaderProps> = ({ cart, setCart }) => {
   const [toggleMenu, setToggleMenu] = useState<boolean>(false);
 
   return (
-    <div className="flex justify-between border-b">
+    <div className="flex justify-between sm:border-b px-8 sm:px-0">
       <div className="flex gap-7 mt-[40px]">
         <div className="flex gap-3 items-start">
           {width < 920 && (
