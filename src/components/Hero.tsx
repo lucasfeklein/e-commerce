@@ -24,11 +24,21 @@ const ImagesOverlay: FC<ImagesOverlayProps> = ({ setToggleOverlay }) => {
           alt="close icon"
           onClick={() => setToggleOverlay(false)}
         />
-        <div>
+        <div className="relative">
           <img
             src="./image-product-1.jpg"
             alt="main image"
             className="rounded-2xl"
+          />
+          <img
+            src="./icon-previous.svg"
+            alt="previous icon"
+            className="cursor-pointer bg-white rounded-full w-10 h-10 p-3 absolute top-1/2 transform -translate-y-1/2 left-0 -ml-5"
+          />
+          <img
+            src="./icon-next.svg"
+            alt="next icon"
+            className="cursor-pointer bg-white rounded-full w-10 h-10 p-3 absolute top-1/2 transform -translate-y-1/2 right-0 -mr-5"
           />
         </div>
         <div className="flex gap-3">
