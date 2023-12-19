@@ -93,7 +93,7 @@ const ImagesOverlay: FC<ImagesOverlayProps> = ({ setToggleOverlay }) => {
 export const Hero: FC<HeroProps> = ({ setCart }) => {
   const [selectedImage, setSelectedImage] = useState<number>(1);
   const [count, setCount] = useState<number>(0);
-  const [toggleOverlay, setToggleOverlay] = useState<boolean>(true);
+  const [toggleOverlay, setToggleOverlay] = useState<boolean>(false);
 
   function handleSelectedImage(number: number) {
     setSelectedImage(number);
