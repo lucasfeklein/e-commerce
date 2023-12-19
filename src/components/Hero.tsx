@@ -13,6 +13,19 @@ const ImagesOverlay: FC<ImagesOverlayProps> = ({ setToggleOverlay }) => {
   function handleSelectedImage(number: number) {
     setSelectedImage(number);
   }
+
+  function handleNextImage() {
+    if (selectedImage < 4) {
+      setSelectedImage((prevImg) => prevImg + 1);
+    }
+  }
+
+  function handlePreviousImage() {
+    if (selectedImage > 1) {
+      setSelectedImage((prevImg) => prevImg - 1);
+    }
+  }
+
   return (
     <div className="fixed inset-0 h-screen w-screen flex justify-center items-center">
       <div className="fixed inset-0 h-screen w-screen flex justify-center items-center bg-black opacity-50 -z-10"></div>
@@ -26,16 +39,18 @@ const ImagesOverlay: FC<ImagesOverlayProps> = ({ setToggleOverlay }) => {
         />
         <div className="relative">
           <img
-            src="./image-product-1.jpg"
+            src={`./image-product-${selectedImage}.jpg`}
             alt="main image"
             className="rounded-2xl"
           />
           <img
+            onClick={handlePreviousImage}
             src="./icon-previous.svg"
             alt="previous icon"
             className="cursor-pointer bg-white rounded-full w-10 h-10 p-3 absolute top-1/2 transform -translate-y-1/2 left-0 -ml-5"
           />
           <img
+            onClick={handleNextImage}
             src="./icon-next.svg"
             alt="next icon"
             className="cursor-pointer bg-white rounded-full w-10 h-10 p-3 absolute top-1/2 transform -translate-y-1/2 right-0 -mr-5"
