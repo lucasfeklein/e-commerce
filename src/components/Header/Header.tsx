@@ -1,5 +1,7 @@
 import { FC, useState } from "react";
 
+const menuArray = ["Collection", "Men", "About", "Contact"];
+
 type HeaderProps = {
   cart: number;
   setCart: (value: React.SetStateAction<number>) => void;
@@ -15,18 +17,14 @@ const Header: FC<HeaderProps> = ({ cart, setCart }) => {
           <img className="mr-4" src="./logo.svg" />
         </div>
         <div className="flex gap-6 h-[60px]">
-          <p className="cursor-pointer text-gray-500 font-semibold hover:text-gray-800 hover:border-b-2 hover:border-b-orange-500">
-            Collection
-          </p>
-          <p className="cursor-pointer text-gray-500 font-semibold hover:text-gray-800 hover:border-b-2 hover:border-b-orange-500">
-            Men
-          </p>
-          <p className="cursor-pointer text-gray-500 font-semibold hover:text-gray-800 hover:border-b-2 hover:border-b-orange-500">
-            About
-          </p>
-          <p className="cursor-pointer text-gray-500 font-semibold hover:text-gray-800 hover:border-b-2 hover:border-b-orange-500">
-            Contact
-          </p>
+          {menuArray.map((menu) => (
+            <p
+              key={menu}
+              className="cursor-pointer text-gray-500 font-semibold hover:text-gray-800 hover:border-b-2 hover:border-b-orange-500"
+            >
+              {menu}
+            </p>
+          ))}
         </div>
       </div>
       <div className="flex gap-7 items-center">
