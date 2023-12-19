@@ -4,7 +4,11 @@ type HeroProps = {
   setCart: (value: React.SetStateAction<number>) => void;
 };
 
-const ImagesOverlay = () => {
+type ImagesOverlayProps = {
+  setToggleOverlay: (value: React.SetStateAction<boolean>) => void;
+};
+
+const ImagesOverlay: FC<ImagesOverlayProps> = ({ setToggleOverlay }) => {
   const [selectedImage, setSelectedImage] = useState<number>(1);
   function handleSelectedImage(number: number) {
     setSelectedImage(number);
@@ -18,6 +22,7 @@ const ImagesOverlay = () => {
           className="filter brightness-0 invert ml-auto cursor-pointer"
           src="./icon-close.svg"
           alt="close icon"
+          onClick={() => setToggleOverlay(false)}
         />
         <div>
           <img
@@ -31,14 +36,14 @@ const ImagesOverlay = () => {
             <div
               key={imageNumber}
               onClick={() => handleSelectedImage(imageNumber)}
-              className={`rounded-2xl cursor-pointer overflow-hidden hover:opacity-50 ${
+              className={`rounded-2xl cursor-pointer hover:opacity-50 ${
                 selectedImage === imageNumber
                   ? "border-2 border-orange-500 opacity-50"
                   : ""
               }`}
             >
               <img
-                className="w-[100px] h-[100px] object-cover"
+                className="w-[100px] h-[100px] object-cover rounded-2xl"
                 src={`./image-product-${imageNumber}-thumbnail.jpg`}
                 alt={`img ${imageNumber}`}
               />
@@ -73,7 +78,8 @@ export const Hero: FC<HeroProps> = ({ setCart }) => {
     <div className="mt-20 flex gap-32">
       <div className="flex-1 max-w-md">
         <img
-          className="rounded-2xl w-full mb-4 min-w-[448px]"
+          className="rounded-2xl w-full mb-4 min-w-[448px] cursor-pointer"
+          onClick={() => setToggleOverlay(true)}
           src={`./image-product-${selectedImage}.jpg`}
           alt="selected img"
         />
@@ -151,7 +157,7 @@ export const Hero: FC<HeroProps> = ({ setCart }) => {
           </button>
         </div>
       </div>
-      {toggleOverlay && <ImagesOverlay />}
+      {toggleOverlay && <ImagesOverlay setToggleOverlay={setToggleOverlay} />}
     </div>
   );
 };
