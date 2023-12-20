@@ -115,7 +115,7 @@ export const Hero: FC<HeroProps> = ({ setCart }) => {
     <div className="sm:mt-20 flex flex-col sm:flex-row sm:gap-32 gap-6">
       <div className="flex-1 sm:max-w-md">
         <img
-          className="sm:rounded-2xl sm:mb-4 min-w-[250px] cursor-pointer h-[250px] sm:h-auto w-full object-cover"
+          className="sm:rounded-2xl sm:mb-4 min-w-[250px] cursor-pointer h-[280px] sm:h-auto w-full object-cover"
           onClick={() => setToggleOverlay(true)}
           src={`./image-product-${selectedImage}.jpg`}
           alt="selected img"

@@ -16,7 +16,7 @@ const Header: FC<HeaderProps> = ({ cart, setCart }) => {
 
   return (
     <div className="flex justify-between sm:border-b px-8 sm:px-0">
-      <div className="flex gap-7 mt-[40px]">
+      <div className="flex gap-7 sm:mt-[40px] mt-[20px] sm:mb-0 mb-[20px]">
         <div className="flex gap-3 items-start">
           {width < 920 && (
             <img
@@ -28,7 +28,7 @@ const Header: FC<HeaderProps> = ({ cart, setCart }) => {
           )}
           <img className="mr-4" src="./logo.svg" />
         </div>
-        <div className="flex gap-6 h-[60px]">
+        <div className="flex gap-6 sm:h-[60px]">
           {width >= 920 &&
             menuArray.map((menu) => (
               <p
