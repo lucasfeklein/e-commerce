@@ -51,7 +51,7 @@ const Header: FC<HeaderProps> = ({ cart, setCart }) => {
           />
           {cart !== 0 && (
             <div
-              className="absolute right-[-5px] top-[-8px] bg-orange-500 rounded-full px-2 text-white text-[10px] font-bold cursor-pointer"
+              className="absolute sm:right-[-5px] sm:top-[-8px] top-3 right-[90px] bg-orange-500 rounded-full px-2 text-white text-[10px] font-bold cursor-pointer"
               onClick={() => setToggleCart(!toggleCart)}
             >
               {cart}
