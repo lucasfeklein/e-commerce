@@ -58,7 +58,7 @@ const Header: FC<HeaderProps> = ({ cart, setCart }) => {
             </div>
           )}
           {toggleCart && (
-            <div className="absolute shadow-md w-[300px] left-[-120px] top-10 p-3 bg-white">
+            <div className="absolute shadow-md w-[300px] left-[-120px] top-10 p-3 bg-white rounded-md">
               <p className="border-b py-2 mb-3 font-bold text-sm">Cart</p>
               {cart === 0 ? (
                 <div className="font-bold text-gray-400 h-[100px] flex items-center justify-center">
