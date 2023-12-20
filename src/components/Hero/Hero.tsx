@@ -1,4 +1,5 @@
 import { FC, useState } from "react";
+import { useWindowSize } from "react-use";
 
 type HeroProps = {
   setCart: (value: React.SetStateAction<number>) => void;
@@ -94,6 +95,7 @@ export const Hero: FC<HeroProps> = ({ setCart }) => {
   const [selectedImage, setSelectedImage] = useState<number>(1);
   const [count, setCount] = useState<number>(0);
   const [toggleOverlay, setToggleOverlay] = useState<boolean>(false);
+  const { width } = useWindowSize();
 
   function handleSelectedImage(number: number) {
     setSelectedImage(number);
@@ -110,15 +112,15 @@ export const Hero: FC<HeroProps> = ({ setCart }) => {
   }
 
   return (
-    <div className="mt-20 flex gap-32">
+    <div className="sm:mt-20 flex flex-col sm:flex-row sm:gap-32 gap-6">
       <div className="flex-1 max-w-md">
         <img
-          className="rounded-2xl w-full mb-4 min-w-[250px] cursor-pointer"
+          className="sm:rounded-2xl sm:mb-4 min-w-[250px] cursor-pointer"
           onClick={() => setToggleOverlay(true)}
           src={`./image-product-${selectedImage}.jpg`}
           alt="selected img"
         />
-        <div className="flex justify-between gap-3">
+        <div className="sm:flex hidden justify-between gap-3 ">
           {[1, 2, 3, 4].map((imageNumber) => (
             <div
               key={imageNumber}
@@ -139,7 +141,7 @@ export const Hero: FC<HeroProps> = ({ setCart }) => {
           ))}
         </div>
       </div>
-      <div className="flex-1 flex flex-col gap-6">
+      <div className="flex-1 flex flex-col gap-6 px-6">
         <p className="text-orange-500 font-bold text-sm tracking-widest">
           SNEAKER COMPANY
         </p>
