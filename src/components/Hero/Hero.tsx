@@ -194,7 +194,9 @@ export const Hero: FC<HeroProps> = ({ setCart }) => {
           </button>
         </div>
       </div>
-      {toggleOverlay && <ImagesOverlay setToggleOverlay={setToggleOverlay} />}
+      {toggleOverlay && width >= 920 && (
+        <ImagesOverlay setToggleOverlay={setToggleOverlay} />
+      )}
     </div>
   );
 };
