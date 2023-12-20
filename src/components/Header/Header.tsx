@@ -42,7 +42,7 @@ const Header: FC<HeaderProps> = ({ cart, setCart }) => {
         </div>
       </div>
       <div className="flex gap-7 items-center">
-        <div className="relative">
+        <div className="sm:relative">
           <img
             width={25}
             src="./icon-cart.svg"
@@ -58,7 +58,7 @@ const Header: FC<HeaderProps> = ({ cart, setCart }) => {
             </div>
           )}
           {toggleCart && (
-            <div className="absolute shadow-md w-[300px] left-[-120px] top-10 p-3 bg-white rounded-md">
+            <div className="absolute left-1/2 -translate-x-1/2 sm:translate-x-0 top-28 shadow-md w-[95%] sm:w-[300px] sm:left-[-120px] sm:top-10 p-3 bg-white rounded-md">
               <p className="border-b py-2 mb-3 font-bold text-sm">Cart</p>
               {cart === 0 ? (
                 <div className="font-bold text-gray-400 h-[100px] flex items-center justify-center">
