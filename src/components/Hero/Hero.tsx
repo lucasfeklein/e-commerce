@@ -101,6 +101,18 @@ export const Hero: FC<HeroProps> = ({ setCart }) => {
     setSelectedImage(number);
   }
 
+  function handleNextImage() {
+    if (selectedImage < 4) {
+      setSelectedImage((prevImg) => prevImg + 1);
+    }
+  }
+
+  function handlePreviousImage() {
+    if (selectedImage > 1) {
+      setSelectedImage((prevImg) => prevImg - 1);
+    }
+  }
+
   function add() {
     setCount((prevCount) => prevCount + 1);
   }
@@ -113,13 +125,29 @@ export const Hero: FC<HeroProps> = ({ setCart }) => {
 
   return (
     <div className="sm:mt-20 flex flex-col sm:flex-row sm:gap-32 gap-6">
-      <div className="flex-1 sm:max-w-md">
+      <div className="relative flex-1 sm:max-w-md">
         <img
           className="sm:rounded-2xl sm:mb-4 min-w-[250px] cursor-pointer h-[280px] sm:h-auto w-full object-cover"
           onClick={() => setToggleOverlay(true)}
           src={`./image-product-${selectedImage}.jpg`}
           alt="selected img"
         />
+        {width < 920 && (
+          <div
+            onClick={handleNextImage}
+            className="h-[40px] w-[40px] bg-white absolute flex justify-center items-center rounded-full top-1/2 -translate-y-1/2 right-5 cursor-pointer"
+          >
+            <img src="./icon-next.svg" alt="icon next" />
+          </div>
+        )}
+        {width < 920 && (
+          <div
+            onClick={handlePreviousImage}
+            className="h-[40px] w-[40px] bg-white absolute flex justify-center items-center rounded-full top-1/2 -translate-y-1/2 left-5 cursor-pointer"
+          >
+            <img src="./icon-previous.svg" alt="icon previous" />
+          </div>
+        )}
         <div className="sm:flex hidden justify-between gap-3 ">
           {[1, 2, 3, 4].map((imageNumber) => (
             <div
