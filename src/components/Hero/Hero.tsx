@@ -151,7 +151,7 @@ export const Hero: FC<HeroProps> = ({ setCart }) => {
           Featuring a durable rubber outer sole, they'll withstand everything
           the weather can offer.
         </p>
-        <div>
+        <div className="sm:block flex justify-between items-center">
           <div className="flex gap-3 items-center">
             <p className="text-gray-800 font-bold text-xl">$125.00</p>
             <div className="flex items-center bg-orange-100 rounded-md px-2">
@@ -162,19 +162,19 @@ export const Hero: FC<HeroProps> = ({ setCart }) => {
             $250.00
           </p>
         </div>
-        <div className="flex gap-3">
+        <div className="flex flex-col sm:flex-row gap-3">
           <div className="flex h-[50px]">
             <button
-              className="bg-gray-100 text-orange-500 font-bold px-3 text-xl rounded-l-md"
+              className="bg-gray-100 text-orange-500 font-bold px-3 text-xl rounded-l-md w-[34px]"
               onClick={subtract}
             >
               <img src="./icon-minus.svg" width={10} />
             </button>
-            <p className="bg-gray-100 font-bold px-5 text-base flex justify-center items-center">
+            <p className="bg-gray-100 font-bold px-5 text-base flex flex-1 justify-center items-center">
               {count}
             </p>
             <button
-              className="bg-gray-100 text-orange-500 font-bold px-3 text-xl rounded-r-md"
+              className="bg-gray-100 text-orange-500 font-bold px-3 text-xl rounded-r-md w-[34px]"
               onClick={add}
             >
               <img src="./icon-plus.svg" width={10} />
@@ -182,7 +182,7 @@ export const Hero: FC<HeroProps> = ({ setCart }) => {
           </div>
 
           <button
-            className="flex bg-orange-500 text-white flex-1 justify-center items-center gap-3 rounded-md hover:opacity-50 max-w-[300px] min-w-[180px] font-bold"
+            className="flex bg-orange-500 text-white justify-center items-center gap-3 rounded-md hover:opacity-50 min-w-[180px] font-bold h-[50px]"
             onClick={() => setCart((prevCart) => prevCart + count)}
           >
             <img
