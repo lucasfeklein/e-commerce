@@ -127,8 +127,12 @@ export const Hero: FC<HeroProps> = ({ setCart }) => {
     <div className="sm:mt-20 flex flex-col sm:flex-row sm:gap-32 gap-6">
       <div className="relative flex-1 sm:max-w-md">
         <img
-          className="sm:rounded-2xl sm:mb-4 min-w-[250px] cursor-pointer h-[280px] sm:h-auto w-full object-cover"
-          onClick={() => setToggleOverlay(true)}
+          className="sm:rounded-2xl sm:mb-4 min-w-[250px] sm:cursor-pointer h-[280px] sm:h-auto w-full object-cover"
+          onClick={() => {
+            if (width >= 920) {
+              setToggleOverlay(true);
+            }
+          }}
           src={`./image-product-${selectedImage}.jpg`}
           alt="selected img"
         />
